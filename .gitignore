@@ -1,5 +1,1 @@
-node_modules/
-dist/
-.parcel-cache/
-tmp/
-.yarn/install-state.gz
+.DS_Store

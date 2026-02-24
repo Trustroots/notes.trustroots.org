@@ -3,41 +3,27 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your default branch is different
+      - main
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
-    
-    - name: Write SHA into file
-      run: echo "export const BUILD_SHA = \"${GITHUB_SHA}\";" > build.ts
-
-    - name: Enable Corepack
-      run: corepack enable
-
-    - name: Prepare Yarn
-      run: corepack prepare yarn@4.4.0 --activate
-
-    - name: Configure git to use HTTPS instead of SSH
-      run: git config --global url."https://".insteadOf ssh://
-
-    - name: Install dependencies
-      run: yarn install
-
-    - name: Build project
-      run: yarn build  # Adjust if your build command is different
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
