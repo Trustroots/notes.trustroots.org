@@ -47,9 +47,9 @@
         font-weight: 700;
       }
 
-      h2 { font-size: 1.35rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-      h3 { font-size: 1.15rem; margin-top: 1.25rem; margin-bottom: 0.4rem; color: var(--brown); }
-      h4 { font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.35rem; color: var(--text-muted); }
+      h2 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+      h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--brown); }
+      h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--text-muted); }
 
       a {
         color: var(--brown);
@@ -147,6 +147,22 @@
 
       .content-main > * + * { margin-top: 1rem; }
 
+      .content-main h2 {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--card-border);
+      }
+
+      .content-main h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .content-main h3 { margin-top: 1.75rem; }
+      .content-main h3:first-of-type { margin-top: 1rem; }
+      .content-main h4 { margin-top: 1.25rem; }
+
       .toc-box {
         background: var(--card-bg);
         border: 1px solid var(--card-border);
@@ -194,6 +210,68 @@
         right: 0.75rem;
         opacity: 0.15;
         pointer-events: none;
+      }
+
+      .content-main .cards {
+        display: flex;
+        gap: 0.75rem;
+        margin: 1rem 0;
+        align-items: stretch;
+      }
+
+      .content-main .card {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content-main .card h2 {
+        font-size: 1.15rem;
+        margin: 0 0 0.35rem 0;
+        color: var(--brown);
+        font-style: italic;
+      }
+
+      .content-main .card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin: 0 0 0.75rem 0;
+        flex: 1;
+      }
+
+      .content-main .btn {
+        display: inline-block;
+        background: var(--green);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.65rem 1.4rem;
+        border-radius: 8px;
+        transition: background 0.15s;
+      }
+
+      .content-main .btn:hover {
+        background: var(--green-dark);
+        text-decoration: none;
+      }
+
+      .content-main .card .mushroom-accent {
+        position: absolute;
+        bottom: 0.75rem;
+        right: 0.75rem;
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      @media (max-width: 600px) {
+        .content-main .cards { flex-direction: column; }
       }
 
       .content-main ul {
@@ -303,8 +381,21 @@
       </ul>
       <p>This creates a foundation for decentralized, user-owned social networking within the Trustroots ecosystem, which we hope will enable more innovations in gift economy applications beyond traditional hospitality exchange. We already see two projects coming soon: lightfoot (a letter writing app) and a hitchhiking app.</p>
 
-      <h2 id="getting-started">Want to try it?</h2>
-      <p><a href="https://notes.trustroots.org/">notes.trustroots.org</a> — <a href="https://github.com/Trustroots/nostroots/releases" id="android">Android APK</a> · <a href="https://testflight.apple.com/join/n5WGu8Hu" id="ios">iOS TestFlight</a></p>
+      <h2 id="getting-started">Try it</h2>
+      <div class="cards">
+        <div class="card" id="android">
+          <h2>Android</h2>
+          <p>Download the latest APK from GitHub releases. These APKs receive over-the-air updates for minor changes.</p>
+          <a class="btn" href="https://github.com/Trustroots/nostroots/releases">Download APK</a>
+          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
+        </div>
+        <div class="card" id="ios">
+          <h2>iOS</h2>
+          <p>Install TestFlight on your iPhone, then join the Nostroots beta.</p>
+          <a class="btn" href="https://testflight.apple.com/join/n5WGu8Hu">Join TestFlight</a>
+          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
+        </div>
+      </div>
 
       <h2 id="background--vision">Why are we doing this?</h2>
 
