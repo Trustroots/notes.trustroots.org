@@ -59,11 +59,12 @@
 
       .header {
         background: var(--green);
-        padding: 1rem 2rem;
+        padding: 1rem 2rem 0.75rem;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 1.25rem;
+        gap: 0.2rem 1.25rem;
         position: relative;
         overflow: hidden;
       }
@@ -99,6 +100,15 @@
         letter-spacing: 0.03em;
         text-transform: none;
         position: relative;
+      }
+
+      .header-url {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        letter-spacing: 0.04em;
       }
 
       .container {
@@ -244,6 +254,7 @@
       <div class="vines"><img src="images/vines-top.png" alt="" /></div>
       <img class="logo" src="logo.svg" alt="Trustroots" />
       <h1>Nostroots</h1>
+      <span class="header-url">notes.trustroots.org</span>
     </div>
 
     <div class="container">
