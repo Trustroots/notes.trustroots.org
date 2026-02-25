@@ -7,4 +7,4 @@ Static landing page for [notes.trustroots.org](https://notes.trustroots.org/) wi
 
 Development of Nostroots happens at [github.com/Trustroots/nostroots](https://github.com/Trustroots/nostroots).
 
-See [team.trustroots.org/nostr.html](https://team.trustroots.org/nostr.html) for documentation.
+See [more.html](more.html) (or notes.trustroots.org/more.html) for background, vision, and FAQ.
