@@ -48,7 +48,7 @@
       }
 
       h2 { font-size: 1.35rem; margin-bottom: 0.5rem; }
-      h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--brown); }
+      h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--green); }
       h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--text-muted); }
 
       a {
@@ -299,11 +299,54 @@
       .content-main ul ul { margin-top: 0.25rem; }
       .content-main ul ul li { font-size: 0.95rem; color: var(--text-muted); }
 
+      .content-main ol {
+        list-style: none;
+        padding-left: 0;
+        counter-reset: ol-counter;
+      }
+
+      .content-main ol li {
+        position: relative;
+        padding-left: 2rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        counter-increment: ol-counter;
+        color: var(--text);
+      }
+
+      .content-main ol li::before {
+        content: counter(ol-counter) ".";
+        position: absolute;
+        left: 0;
+        color: var(--olive);
+        font-weight: 700;
+      }
+
+      .content-main ul.hospex-logos li {
+        padding-left: 1.4rem;
+      }
+
+      .content-main ul.hospex-logos li a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .hospex-logos img {
+        height: 1.2em;
+        width: auto;
+        vertical-align: middle;
+      }
+
       .mycelium {
         display: flex;
         justify-content: center;
         padding: 0;
         opacity: 0.55;
+      }
+
+      .content-main .mycelium {
+        margin: 2rem 0;
       }
 
       .mycelium img {
@@ -381,6 +424,8 @@
       </ul>
       <p>This creates a foundation for decentralized, user-owned social networking within the Trustroots ecosystem, which we hope will enable more innovations in gift economy applications beyond traditional hospitality exchange. We already see two projects coming soon: lightfoot (a letter writing app) and a hitchhiking app.</p>
 
+      <div class="mycelium"><img src="images/section-vines.svg" alt="" /></div>
+
       <h2 id="getting-started">Try it</h2>
       <div class="cards">
         <div class="card" id="android">
@@ -420,10 +465,10 @@
 
       <h3>The Current Landscape</h3>
       <p>It's great that there are now hospex networks running on open source free software that are free to use, including:</p>
-      <ul>
-        <li><strong>Trustroots</strong> (us!)</li>
+      <ul class="hospex-logos">
+        <li><a href="https://www.trustroots.org/"><img src="images/logo-trustroots-icon.svg" alt="" /> <strong>Trustroots</strong> (us!)</a></li>
         <li><a href="https://www.bewelcome.org/">BeWelcome</a></li>
-        <li><a href="https://www.couchers.org/">Couchers.org</a></li>
+        <li><a href="https://www.couchers.org/"><img src="images/couchers-logo.png" alt="" /> Couchers.org</a></li>
       </ul>
 
       <h3>What's Missing</h3>
@@ -443,6 +488,8 @@
         <li>Connect notes to specific <a href="https://www.trustroots.org/circles">circles</a> (coming soon)</li>
       </ul>
       <p>This creates a foundation for decentralized, user-owned social networking within the Trustroots ecosystem, enabling innovation in gift economy applications beyond traditional hospitality exchange.</p>
+
+      <div class="mycelium"><img src="images/section-roots.svg" alt="" /></div>
 
       <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
       <blockquote><strong>You're warmly invited to edit this section:</strong> improve, add questions, and answers!</blockquote>

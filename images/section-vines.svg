@@ -1,0 +1,20 @@
+<svg viewBox="0 0 1200 140" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Flowing vine stems -->
+  <path d="M0 70 Q200 20 400 70 Q600 120 800 70 Q1000 25 1200 70" stroke="#6a7d45" stroke-width="1.8" fill="none"/>
+  <path d="M0 75 Q250 35 500 75 Q750 115 1000 75 Q1150 50 1200 75" stroke="#5a7038" stroke-width="1.2" fill="none" opacity="0.8"/>
+  <path d="M50 90 Q300 50 550 90 Q800 130 1150 90" stroke="#7a5c3a" stroke-width="1.4" fill="none" opacity="0.85"/>
+  <!-- Tendrils and curls -->
+  <path d="M150 65 Q120 45 140 25 Q160 15 180 28" stroke="#6a7d45" stroke-width="1" fill="none"/>
+  <path d="M350 75 Q380 55 365 35 Q350 20 370 40" stroke="#a08b6e" stroke-width="0.9" fill="none" opacity="0.8"/>
+  <path d="M550 65 Q520 45 540 28 Q565 15 590 35" stroke="#6a7d45" stroke-width="1" fill="none"/>
+  <path d="M750 78 Q780 58 765 38 Q748 22 775 45" stroke="#a08b6e" stroke-width="0.9" fill="none" opacity="0.8"/>
+  <path d="M950 68 Q920 48 945 30 Q970 18 995 38" stroke="#6a7d45" stroke-width="1" fill="none"/>
+  <!-- Connecting arcs between stems -->
+  <path d="M200 55 Q280 65 360 55" stroke="#a08b6e" stroke-width="0.7" fill="none" opacity="0.5"/>
+  <path d="M600 85 Q680 75 760 85" stroke="#a08b6e" stroke-width="0.7" fill="none" opacity="0.5"/>
+  <path d="M400 72 Q500 62 600 72" stroke="#8b7355" stroke-width="0.6" fill="none" opacity="0.4"/>
+  <!-- Small leaves -->
+  <path d="M220 52 Q224 48 228 52 Q224 56 220 52Z" fill="#6a7d45" opacity="0.35"/>
+  <path d="M620 88 Q616 84 620 80 Q624 84 620 88Z" fill="#5a7038" opacity="0.3"/>
+  <path d="M1020 62 Q1024 58 1028 62 Q1024 66 1020 62Z" fill="#6a7d45" opacity="0.3"/>
+</svg>

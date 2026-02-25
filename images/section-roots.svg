@@ -1,0 +1,24 @@
+<svg viewBox="0 0 1200 140" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Horizon line -->
+  <path d="M0 32 Q300 28 600 32 Q900 36 1200 32" stroke="#8b7355" stroke-width="1.5" fill="none"/>
+  <!-- Branching roots - left cluster -->
+  <path d="M120 32 Q100 60 130 85 Q155 105 140 138" stroke="#7a5c3a" stroke-width="1.6" fill="none"/>
+  <path d="M120 32 Q145 55 125 80 Q105 100 118 130" stroke="#a08b6e" stroke-width="1" fill="none"/>
+  <path d="M120 32 Q85 50 105 75 Q125 95 115 125" stroke="#a08b6e" stroke-width="0.9" fill="none" opacity="0.7"/>
+  <!-- Center cluster -->
+  <path d="M600 32 Q575 65 610 90 Q640 112 620 138" stroke="#7a5c3a" stroke-width="1.6" fill="none"/>
+  <path d="M600 32 Q630 58 605 82 Q580 102 595 128" stroke="#a08b6e" stroke-width="1.1" fill="none"/>
+  <path d="M600 32 Q565 52 585 78 Q608 98 598 120" stroke="#a08b6e" stroke-width="0.9" fill="none" opacity="0.6"/>
+  <!-- Right cluster -->
+  <path d="M1080 32 Q1055 62 1090 88 Q1120 108 1100 138" stroke="#7a5c3a" stroke-width="1.5" fill="none"/>
+  <path d="M1080 32 Q1110 55 1085 80 Q1062 98 1075 122" stroke="#a08b6e" stroke-width="1" fill="none"/>
+  <!-- Horizontal connections between clusters -->
+  <path d="M140 85 Q370 78 605 90" stroke="#a08b6e" stroke-width="0.8" fill="none" opacity="0.5"/>
+  <path d="M620 90 Q850 82 1085 88" stroke="#a08b6e" stroke-width="0.8" fill="none" opacity="0.5"/>
+  <path d="M130 105 Q365 98 620 112" stroke="#8b7355" stroke-width="0.6" fill="none" opacity="0.35"/>
+  <path d="M625 105 Q860 98 1090 105" stroke="#8b7355" stroke-width="0.6" fill="none" opacity="0.35"/>
+  <!-- Subtle nodes at branch points -->
+  <circle cx="130" cy="85" r="2.5" fill="#6a7d45" opacity="0.4"/>
+  <circle cx="610" cy="90" r="2.5" fill="#6a7d45" opacity="0.4"/>
+  <circle cx="1090" cy="88" r="2.5" fill="#6a7d45" opacity="0.4"/>
+</svg>
