@@ -8,7 +8,6 @@
       name="description"
       content="Background, vision, and FAQ about Nostroots — Trustroots' integration with the Nostr protocol for decentralized, user-owned social networking."
     />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <style>
       *,
       *::before,
@@ -173,6 +172,8 @@
       }
 
       .toc-box h2 { margin-top: 0; font-size: 1.15rem; color: var(--brown); font-style: italic; }
+      .toc-box-sticker { margin: -1.25rem -1.25rem 0.75rem -1.25rem; padding: 0; }
+      .toc-box-sticker img { width: 100%; height: auto; display: block; object-fit: cover; vertical-align: top; }
       .toc-box ul { list-style: none; padding-left: 0; }
       .toc-box li { padding: 0.2rem 0; }
       .toc-box ul ul { padding-left: 1.25rem; margin-top: 0.2rem; }
@@ -355,6 +356,18 @@
         display: block;
       }
 
+      .brand-graphic-wrap {
+        margin: 1.5rem 0;
+        text-align: center;
+      }
+      .brand-graphic {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+      }
+
       .links {
         border-top: 1px solid var(--card-border);
         padding-top: 1rem;
@@ -381,9 +394,68 @@
         font-size: 0.95rem;
       }
 
-      .container iframe {
-        margin-top: 2rem;
+      .recent-notes-box {
+        margin-bottom: 1rem;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: var(--radius);
+        padding: 0.85rem 1rem;
+      }
+
+      .recent-notes-box h2 {
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+        color: var(--brown);
+        font-style: italic;
+      }
+
+      .recent-notes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .recent-note-item {
+        padding-bottom: 0.35rem;
+      }
+
+      .recent-note-separator {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 14px;
+        margin: 0.2rem 0;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.45;
+      }
+
+      .recent-notes-box .note-meta-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.25rem 0.4rem;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-bottom: 0.1rem;
+      }
+
+      .recent-notes-box .note-id {
+        margin-left: auto;
+        font-family: ui-monospace, monospace;
+        font-size: 0.8em;
+        color: var(--green);
+      }
+
+      .recent-notes-box .note-relative-time {
+        color: var(--text-muted);
+        font-size: 0.72rem;
+      }
+
+      .recent-notes-box .note-content {
+        font-size: 0.88rem;
+        color: var(--text);
+        line-height: 1.35;
       }
 
       @media (max-width: 600px) {
@@ -449,6 +521,13 @@
         </div>
       </div>
 
+      <section class="recent-notes-box" id="recent-notes-box" aria-label="Recent notes">
+        <h2>Recent notes</h2>
+        <div id="recent-notes-list" class="recent-notes-list">
+          <p class="recent-notes-loading">Loading recent notes…</p>
+        </div>
+      </section>
+
       <h2 id="background--vision">Why are we doing this?</h2>
 
       <h3>The Problem with Centralized Networks</h3>
@@ -506,7 +585,7 @@
       <h4>How is Nostr different?</h4>
       <p><strong>Data Ownership:</strong> In Nostr, users own their data. They can choose where to store it and which Nostr clients to use for interaction. This is in stark contrast to e.g. CouchSurfing™, where the company owns and controls user data, including its usage and monetization.</p>
       <p><strong>Decentralization:</strong> Unlike all existing hospitality networks, which are controlled by a single company or organization, Nostr is decentralized. It doesn't rely on a central server or entity. Instead, it operates through a network of independent servers (relays), allowing for greater resistance to censorship and central control.</p>
-      <p><strong>Identity Verification:</strong> Nostr uses cryptographic keys for identity verification. Each user has a unique pair of keys (public and private) for identity and authentication, contrasting with reliance on user-provided information like email or phone number that is used on almost all existing networks.</p>
+      <p><strong>Identity Verification:</strong> Nostr uses cryptographic keys for identity verification. Each user has a unique pair of keys (public and private) for identity and authentication, contrasting with reliance on user-provided information like email or phone number that is used on almost all existing networks. Trustroots supports <a href="https://nips.nostr.com/5">NIP-05</a>: your Trustroots username can be used as a Nostr identifier (<em>username</em>@trustroots.org), verified via <a href="https://www.trustroots.org/.well-known/nostr.json">www.trustroots.org/.well-known/nostr.json</a>. The Nostroots app uses this to link your profile and show your username on notes.</p>
 
       <h4>ActivityPub, Solid vs Nostr</h4>
       <p>ActivityPub heavily relies on specific domains and sysadmins running servers. Solid is similar, but the protocol is kind of W3C-bloat. And there's no good profile portability. So if your favorite ActivityPub/Solid hospex network goes rogue and you want to move elsewhere, you're out of luck.</p>
@@ -593,14 +672,13 @@
         <li><strong><a href="https://ideas.trustroots.org/category/nostr/">Blog posts about Nostr</a></strong> — Read about our journey and updates</li>
         <li><strong><a href="https://github.com/Trustroots/nostroots">GitHub repository</a></strong> — Contribute code, report issues, or follow development</li>
         <li><strong><a href="https://nostr.com/">Nostr protocol documentation</a></strong> — Learn more about the Nostr protocol itself</li>
+        <li><strong><a href="https://www.trustroots.org/.well-known/nostr.json">Trustroots NIP-05</a></strong> — Nostr identity mapping (e.g. <em>username</em>@trustroots.org); used by the Nostroots app to link and display usernames</li>
       </ul>
-
-      <iframe id="Iframe1" width="100%" height="300" frameborder="0" src="https://tripch.at/embed.html"></iframe>
 
         </main>
         <aside class="toc-aside">
           <div class="toc-box">
-            <h2>Table of Contents</h2>
+            <p class="toc-box-sticker"><img src="images/nostroots-brand-sticker-crisp.jpeg" alt="Nostroots" width="240" height="240" /></p>
             <ul>
               <li><a href="#what-is-nostroots">Nostroots?</a>
                 <ul>
@@ -639,5 +717,6 @@
     <div class="mycelium">
       <img src="images/mycelium-roots.svg" alt="" />
     </div>
+    <script type="module" src="recent-notes.js"></script>
   </body>
 </html>
