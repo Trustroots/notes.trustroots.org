@@ -13,6 +13,9 @@ const LIMIT = 80;
 const SHOW_COUNT = 7;
 const EOSE_TIMEOUT_MS = 8000;
 
+/** Ignore notes from these authors (npub prefix match). */
+const IGNORED_NPUB_PREFIXES = ['npub1ld69y3d'];
+
 function formatDate(timestamp) {
   const date = new Date(timestamp * 1000);
   const year = date.getFullYear();
@@ -32,6 +35,16 @@ function formatRelativeTime(timestamp) {
   if (diff < 2592000) return Math.floor(diff / 86400) + 'd';
   if (diff < 31536000) return Math.floor(diff / 2592000) + 'd';
   return Math.floor(diff / 31536000) + 'y';
+}
+
+function isAuthorIgnored(pubkey, nip19) {
+  if (!pubkey || !nip19 || typeof nip19.npubEncode !== 'function') return false;
+  try {
+    const npub = nip19.npubEncode(pubkey);
+    return IGNORED_NPUB_PREFIXES.some(function (prefix) { return npub.startsWith(prefix); });
+  } catch (_) {
+    return false;
+  }
 }
 
 function isEventExpired(event) {
@@ -190,6 +203,7 @@ function run(Relay, nip19) {
     if (eoseCount < totalRelays) return;
     const list = Array.from(byId.values())
       .filter(function (e) { return !isEventExpired(e); })
+      .filter(function (e) { return !isAuthorIgnored(e.pubkey, nip19); })
       .sort(function (a, b) { return a.created_at - b.created_at; });
     renderNotes(container, list.slice(-SHOW_COUNT), nip19, pubkeyToUsername);
   }
