@@ -393,11 +393,11 @@
       <h1>Nostroots</h1>
       <a href="index.html" class="header-url">notes.trustroots.org</a>
       <nav class="header-quicklinks" aria-label="Platform links">
-        <a href="https://nos.trustroots.org">Web app</a>
+        <a href="https://nos.trustroots.org" data-umami-event="Click web app" data-umami-event-placement="header">Web app</a>
         <span class="sep" aria-hidden="true">·</span>
-        <a href="https://testflight.apple.com/join/n5WGu8Hu">iOS</a>
+        <a href="https://testflight.apple.com/join/n5WGu8Hu" data-umami-event="Click iOS app" data-umami-event-placement="header">iOS</a>
         <span class="sep" aria-hidden="true">·</span>
-        <a href="https://github.com/Trustroots/nostroots/releases">Android</a>
+        <a href="https://github.com/Trustroots/nostroots/releases" data-umami-event="Click Android app" data-umami-event-placement="header">Android</a>
       </nav>
     </div>
 
@@ -426,7 +426,12 @@
           <p>
             Experimental web attempt at mimicking Trustroots on nostr.
           </p>
-          <a class="btn" href="https://nos.trustroots.org/">
+          <a
+            class="btn"
+            href="https://nos.trustroots.org/"
+            data-umami-event="Click web app"
+            data-umami-event-placement="card"
+          >
             Open web app
           </a>
           <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
@@ -443,6 +448,8 @@
           <a
             class="btn"
             href="https://github.com/Trustroots/nostroots/releases"
+            data-umami-event="Click Android app"
+            data-umami-event-placement="card"
           >
             Download APK
           </a>
@@ -461,6 +468,8 @@
           <a
             class="btn"
             href="https://testflight.apple.com/join/n5WGu8Hu"
+            data-umami-event="Click iOS app"
+            data-umami-event-placement="card"
           >
             Join TestFlight
           </a>
