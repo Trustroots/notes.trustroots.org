@@ -12,7 +12,7 @@ const RELAYS = [
 const LIMIT = 80;
 const SHOW_COUNT = 7;
 const EOSE_TIMEOUT_MS = 8000;
-const REQUIRED_CHANNEL_TAG = 'nostroots';
+const REQUIRED_CHANNEL_TAGS = ['nostroots', 'wanttomeet'];
 
 /** Ignore notes from these authors (npub prefix match). */
 const IGNORED_NPUB_PREFIXES = ['npub1ld69y3d'];
@@ -177,6 +177,14 @@ function eventHasRequiredTag(event, requiredTag) {
   return contentHasRequiredTag(event && event.content, required);
 }
 
+function eventHasAnyRequiredTag(event, requiredTags) {
+  if (!Array.isArray(requiredTags) || requiredTags.length === 0) return true;
+  for (let i = 0; i < requiredTags.length; i++) {
+    if (eventHasRequiredTag(event, requiredTags[i])) return true;
+  }
+  return false;
+}
+
 function setLoading(container, message) {
   container.innerHTML = '<p class="recent-notes-loading">' + escapeHtml(message) + '</p>';
 }
@@ -281,7 +289,7 @@ function run(Relay, nip19) {
     if (eoseCount < totalRelays) return;
     const list = Array.from(byId.values())
       .filter(function (e) { return !isEventExpired(e); })
-      .filter(function (e) { return eventHasRequiredTag(e, REQUIRED_CHANNEL_TAG); })
+      .filter(function (e) { return eventHasAnyRequiredTag(e, REQUIRED_CHANNEL_TAGS); })
       .sort(function (a, b) { return a.created_at - b.created_at; });
     renderNotes(container, list.slice(-SHOW_COUNT), nip19, pubkeyToUsername);
   }
