@@ -273,6 +273,54 @@
         flex: 1;
       }
 
+      .content-main .card .experiments-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.1rem 0 0.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .content-main .card .experiments-list li {
+        margin: 0;
+        padding: 0;
+        color: inherit;
+      }
+
+      .content-main .card .experiments-list li::before {
+        content: none;
+      }
+
+      .content-main .card .experiments-list li a,
+      .content-main .card .experiments-list li.experiment-idea {
+        display: inline-block;
+        border: 1px solid var(--card-border);
+        border-radius: 999px;
+        background: #ebe4d4;
+        padding: 0.28rem 0.65rem;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .content-main .card .experiments-list li a {
+        color: var(--brown);
+        font-weight: 600;
+      }
+
+      .content-main .card .experiments-list li.experiment-idea {
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      .content-main .card .experiments-list li a.experiment-idea-link {
+        color: var(--text-muted);
+        font-style: italic;
+        font-weight: 500;
+        padding: 0.22rem 0.5rem;
+        font-size: 0.9rem;
+      }
+
       .content-main .btn {
         display: inline-block;
         background: var(--green);
@@ -594,17 +642,23 @@
       </section>
 
       <div class="cards">
-        <div class="card" id="web">
-          <h2>Web app</h2>
-          <p>Try the web app as one of several ongoing experiments.</p>
-          <a
-            class="btn"
-            href="https://nos.trustroots.org"
-            data-umami-event="Click web app"
-            data-umami-event-placement="card"
-            data-umami-event-target="web-app"
-            data-umami-event-url="https://nos.trustroots.org"
-          >Open web app</a>
+        <div class="card" id="experiments">
+          <h2>Experiments</h2>
+          <p>Try one of these Nostroots experiments.</p>
+          <ul class="experiments-list">
+            <li>
+              <a
+                href="https://nos.trustroots.org"
+                data-umami-event="Click web app"
+                data-umami-event-placement="card"
+                data-umami-event-target="web-app"
+                data-umami-event-url="https://nos.trustroots.org"
+              >Web app</a>
+            </li>
+            <li>
+              <a class="experiment-idea-link" href="https://www.trustroots.org/support">your nostr experiment here?</a>
+            </li>
+          </ul>
           <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
         </div>
       </div>
