@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to Nostroots</title>
+    <script>
+      (function () {
+        var path = window.location.pathname || "/";
+        var target = "https://nos.trustroots.org";
+        if (path === "/more.html" || path === "/more/" || path === "/more") {
+          target += "/background/";
+        } else {
+          target += path;
+        }
+        target += window.location.search || "";
+        target += window.location.hash || "";
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="https://nos.trustroots.org/">nos.trustroots.org</a>.</p>
+  </body>
+</html>

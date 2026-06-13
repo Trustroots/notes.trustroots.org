@@ -1,10 +1,9 @@
-# Nostroots landing page
+# notes.trustroots.org redirects
 
-Static landing page for [notes.trustroots.org](https://notes.trustroots.org/) with links to download the Nostroots app.
+This GitHub Pages site keeps legacy `notes.trustroots.org` links working while Nostroots web content lives at [nos.trustroots.org](https://nos.trustroots.org/).
 
-- **Android** — [Google Play](https://play.google.com/store/apps/details?id=org.trustroots.nostroots) ([APK on GitHub releases](https://github.com/Trustroots/nostroots/releases))
-- **iOS TestFlight** — [testflight.apple.com/join/n5WGu8Hu](https://testflight.apple.com/join/n5WGu8Hu)
+- `/` redirects to `https://nos.trustroots.org/`
+- `/more.html` and `/more/` redirect to `https://nos.trustroots.org/background/`
+- unknown paths use `404.html` as a best-effort path-preserving redirect to `https://nos.trustroots.org`
 
 Development of Nostroots happens at [github.com/Trustroots/nostroots](https://github.com/Trustroots/nostroots).
-
-See [more.html](more.html) (or notes.trustroots.org/more.html) for background, vision, and FAQ.
