@@ -8,552 +8,24 @@
       name="description"
       content="Background, vision, and FAQ about Nostroots — Trustroots' integration with the Nostr protocol for decentralized, user-owned social networking."
     />
+    <meta name="theme-color" content="#004b3f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="hub.css" />
     <script defer src="https://1p.trustroots.org/script.js" data-website-id="601d19e0-c5db-4545-a891-9cffc9e51d8c"></script>
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --green: #12b591;
-        --green-dark: #0e9a7b;
-        --bg: #f5f0e6;
-        --text: #3a2e1f;
-        --text-muted: #6b5940;
-        --card-bg: #faf6ed;
-        --card-border: #d4c9b0;
-        --radius: 14px;
-        --brown: #7a5c3a;
-        --olive: #6a7d45;
-        --tan: #c4a96a;
-        --rust: #b87333;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif;
-        color: var(--text);
-        background: var(--bg);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      h1, h2 {
-        font-family: Georgia, "Times New Roman", serif;
-        font-weight: 700;
-      }
-
-      h2 { font-size: 1.35rem; margin-bottom: 0.5rem; }
-      h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--green); }
-      h4 { font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--text-muted); }
-
-      a {
-        color: var(--brown);
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: var(--rust);
-        text-decoration: underline;
-      }
-
-      .header {
-        background: var(--green);
-        padding: 1rem 2rem 0.75rem;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.2rem 1.25rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .header .vines {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-      }
-
-      .header .vines img {
-        width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        opacity: 0.15;
-      }
-
-      .header .logo {
-        height: 32px;
-        width: auto;
-        position: relative;
-      }
-
-      .header h1 {
-        color: #fff;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.7rem;
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: 0.03em;
-        text-transform: none;
-        position: relative;
-      }
-
-      .header-url {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9rem;
-        position: relative;
-        width: 100%;
-        text-align: center;
-        letter-spacing: 0.04em;
-      }
-
-      a.header-url:hover {
-        color: rgba(255, 255, 255, 1);
-        text-decoration: none;
-      }
-
-      .header-quicklinks {
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.82rem;
-        letter-spacing: 0.02em;
-      }
-
-      .header-quicklinks a {
-        color: rgba(255, 255, 255, 0.86);
-        text-decoration: none;
-      }
-
-      .header-quicklinks a:hover {
-        color: #fff;
-        text-decoration: underline;
-      }
-
-      .header-quicklinks .sep {
-        color: rgba(255, 255, 255, 0.55);
-      }
-
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 1.5rem 1.5rem 0.5rem;
-      }
-
-      .container > * + * { margin-top: 1rem; }
-
-      .page-layout {
-        display: grid;
-        gap: 2rem;
-        margin-top: 1rem;
-        align-items: start;
-      }
-
-      @media (min-width: 900px) {
-        .page-layout {
-          grid-template-columns: 1fr 220px;
-        }
-        .toc-aside {
-          position: sticky;
-          top: 1.5rem;
-        }
-      }
-
-      .content-main > * + * { margin-top: 1rem; }
-
-      .content-main h2 {
-        margin-top: 2.5rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--card-border);
-      }
-
-      .content-main h2:first-child {
-        margin-top: 0;
-        padding-top: 0;
-        border-top: none;
-      }
-
-      .content-main h3 { margin-top: 1.75rem; }
-      .content-main h3:first-of-type { margin-top: 1rem; }
-      .content-main h4 { margin-top: 1.25rem; }
-
-      .toc-box {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 1.25rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .toc-box h2 { margin-top: 0; font-size: 1.15rem; color: var(--brown); font-style: italic; }
-      .toc-box-sticker { margin: -1.25rem -1.25rem 0.75rem -1.25rem; padding: 0; }
-      .toc-box-sticker img { width: 100%; height: auto; display: block; object-fit: cover; vertical-align: top; }
-      .toc-box ul { list-style: none; padding-left: 0; }
-      .toc-box li { padding: 0.2rem 0; }
-      .toc-box ul ul { padding-left: 1.25rem; margin-top: 0.2rem; }
-
-      .toc-box .mushroom-accent {
-        position: absolute;
-        bottom: 0.75rem;
-        right: 0.75rem;
-        opacity: 0.15;
-        pointer-events: none;
-      }
-
-      .manifesto-box {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 1.25rem;
-        margin: 1rem 0;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .manifesto-statement {
-        margin: 0.5rem 0;
-        padding: 0;
-        color: var(--text-muted);
-      }
-
-      .manifesto-statement:first-child { margin-top: 0; }
-      .manifesto-statement:last-child { margin-bottom: 0; }
-
-      .manifesto-box .mushroom-accent {
-        position: absolute;
-        bottom: 0.75rem;
-        right: 0.75rem;
-        opacity: 0.15;
-        pointer-events: none;
-      }
-
-      .content-main .cards {
-        display: flex;
-        gap: 0.75rem;
-        margin: 1rem 0;
-        align-items: stretch;
-      }
-
-      .content-main .card {
-        flex: 1;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 1.25rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .content-main .card h2 {
-        font-size: 1.15rem;
-        margin: 0 0 0.35rem 0;
-        color: var(--brown);
-        font-style: italic;
-      }
-
-      .content-main .card p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin: 0 0 0.75rem 0;
-        flex: 1;
-      }
-
-      .content-main .card .experiments-list {
-        list-style: none;
-        padding: 0;
-        margin: 0.1rem 0 0.25rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-
-      .content-main .card .experiments-list li {
-        margin: 0;
-        padding: 0;
-        color: inherit;
-      }
-
-      .content-main .card .experiments-list li::before {
-        content: none;
-      }
-
-      .content-main .card .experiments-list li a,
-      .content-main .card .experiments-list li.experiment-idea {
-        display: inline-block;
-        border: 1px solid var(--card-border);
-        border-radius: 999px;
-        background: #ebe4d4;
-        padding: 0.28rem 0.65rem;
-        font-size: 0.95rem;
-        line-height: 1.35;
-      }
-
-      .content-main .card .experiments-list li a {
-        color: var(--brown);
-        font-weight: 600;
-      }
-
-      .content-main .card .experiments-list li.experiment-idea {
-        color: var(--text-muted);
-        font-style: italic;
-      }
-
-      .content-main .card .experiments-list li a.experiment-idea-link {
-        color: var(--text-muted);
-        font-style: italic;
-        font-weight: 500;
-        padding: 0.22rem 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      .content-main .btn {
-        display: inline-block;
-        background: var(--green);
-        color: #fff;
-        font-weight: 600;
-        font-size: 0.95rem;
-        padding: 0.65rem 1.4rem;
-        border-radius: 8px;
-        transition: background 0.15s;
-      }
-
-      .content-main .btn:hover {
-        background: var(--green-dark);
-        text-decoration: none;
-      }
-
-      .content-main .card .mushroom-accent {
-        position: absolute;
-        bottom: 0.75rem;
-        right: 0.75rem;
-        opacity: 0.15;
-        pointer-events: none;
-      }
-
-      @media (max-width: 600px) {
-        .content-main .cards { flex-direction: column; }
-      }
-
-      .content-main ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .content-main ul li {
-        padding: 0.3rem 0;
-        padding-left: 1.4rem;
-        position: relative;
-        color: var(--text);
-      }
-
-      .content-main ul li::before {
-        content: "~";
-        position: absolute;
-        left: 0.15rem;
-        color: var(--olive);
-        font-weight: 700;
-        font-size: 1.1rem;
-        line-height: 1.3;
-      }
-
-      .content-main ul ul { margin-top: 0.25rem; }
-      .content-main ul ul li { font-size: 0.95rem; color: var(--text-muted); }
-
-      .content-main ol {
-        list-style: none;
-        padding-left: 0;
-        counter-reset: ol-counter;
-      }
-
-      .content-main ol li {
-        position: relative;
-        padding-left: 2rem;
-        padding-top: 0.3rem;
-        padding-bottom: 0.3rem;
-        counter-increment: ol-counter;
-        color: var(--text);
-      }
-
-      .content-main ol li::before {
-        content: counter(ol-counter) ".";
-        position: absolute;
-        left: 0;
-        color: var(--olive);
-        font-weight: 700;
-      }
-
-      .content-main ul.hospex-logos li {
-        padding-left: 1.4rem;
-      }
-
-      .content-main ul.hospex-logos li a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      .hospex-logos img {
-        height: 1.2em;
-        width: auto;
-        vertical-align: middle;
-      }
-
-      .mycelium {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        opacity: 0.55;
-      }
-
-      .content-main .mycelium {
-        margin: 2rem 0;
-      }
-
-      .mycelium img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .brand-graphic-wrap {
-        margin: 1.5rem 0;
-        text-align: center;
-      }
-      .brand-graphic {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 8px;
-      }
-
-      .links {
-        border-top: 1px solid var(--card-border);
-        padding-top: 1rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-size: 0.9rem;
-        font-family: Georgia, "Times New Roman", serif;
-        letter-spacing: 0.02em;
-      }
-
-      .links a {
-        font-family: Georgia, "Times New Roman", serif;
-        font-style: italic;
-      }
-
-      blockquote {
-        margin: 1rem 0;
-        padding: 0.5rem 0 0.5rem 1rem;
-        border-left: 3px solid var(--card-border);
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-
-      .recent-notes-box {
-        margin-bottom: 1rem;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 0.85rem 1rem;
-      }
-
-      .recent-notes-box h2 {
-        font-size: 1.05rem;
-        margin-bottom: 0.5rem;
-        color: var(--brown);
-        font-style: italic;
-      }
-
-      .recent-notes-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .recent-note-item {
-        padding-bottom: 0.35rem;
-      }
-
-      .recent-note-separator {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 14px;
-        margin: 0.2rem 0;
-        object-fit: cover;
-        object-position: center;
-        opacity: 0.45;
-      }
-
-      .recent-notes-box .note-meta-row {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.25rem 0.4rem;
-        font-size: 0.72rem;
-        color: var(--text-muted);
-        margin-bottom: 0.1rem;
-      }
-
-      .recent-notes-box .note-id {
-        margin-left: auto;
-        font-family: ui-monospace, monospace;
-        font-size: 0.8em;
-        color: var(--green);
-      }
-
-      .recent-notes-box .note-relative-time {
-        color: var(--text-muted);
-        font-size: 0.72rem;
-      }
-
-      .recent-notes-box .note-content {
-        font-size: 0.88rem;
-        color: var(--text);
-        line-height: 1.35;
-      }
-
-      @media (max-width: 600px) {
-        .container { padding: 1rem; }
-      }
-
-      @media (max-width: 899px) {
-        .page-layout { grid-template-columns: 1fr; }
-      }
-    </style>
   </head>
   <body>
-    <div class="header">
-      <div class="vines"><img src="images/vines-top.png" alt="" /></div>
-      <a href="https://www.trustroots.org/"><img class="logo" src="logo.svg" alt="Trustroots" /></a>
-      <h1>Nostroots</h1>
-      <a href="index.html" class="header-url">notes.trustroots.org</a>
-      <nav class="header-quicklinks" aria-label="Platform links">
+    <main class="hub hub-content" aria-labelledby="hub-title">
+      <nav class="hub-nav" aria-label="Platform links">
+        <a href="index.html">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
         <a
-          href="https://github.com/Trustroots/nostroots/releases"
+          href="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
           data-umami-event="Click Android app"
           data-umami-event-placement="header"
           data-umami-event-target="android-app"
-          data-umami-event-url="https://github.com/Trustroots/nostroots/releases"
+          data-umami-event-url="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
         >Android</a>
         <span class="sep" aria-hidden="true">·</span>
         <a
@@ -572,25 +44,35 @@
           data-umami-event-url="https://nos.trustroots.org"
         >Web app</a>
       </nav>
-    </div>
 
-    <div class="container">
-      <p><strong>Nostroots</strong> is Trustroots' integration with the <a href="https://nostr.com/">Nostr protocol</a>, bringing decentralized, user-owned social networking features to the hospitality exchange platform.</p>
+      <header class="hub-header">
+        <div class="brand">
+          <a href="index.html"><img src="images/nostroots-logo.png" alt="" width="86" height="86" /></a>
+        </div>
+        <h1 id="hub-title">
+          <span class="hub-title-line">More information</span>
+          <span class="hub-title-line">about Nostroots</span>
+        </h1>
+        <p class="lead">
+          <strong>Nostroots</strong> is Trustroots' integration with the
+          <a href="https://nostr.com/">Nostr protocol</a>, bringing decentralized,
+          user-owned social networking features to the hospitality exchange platform.
+        </p>
+      </header>
 
       <div class="page-layout">
-        <main class="content-main">
+        <div class="content-main">
       <h2 id="what-is-nostroots">What is Nostroots?</h2>
       <p>Nostroots is the evolution of Trustroots, built on a more open, decentralized protocol. The result is a version of Trustroots that is more open, resilient, and user-empowered.</p>
 
       <h3 id="our-manifesto-2025">Our Manifesto (2025)</h3>
-      <div class="manifesto-box">
+      <div class="panel manifesto-box">
         <p class="manifesto-statement">We want a world that encourages trust, adventure, and intercultural connections.</p>
         <p class="manifesto-statement">Our willingness to help each other is universal.</p>
         <p class="manifesto-statement">Trustroots is completely free to use — and will remain so forever.</p>
         <p class="manifesto-statement">We believe in beauty, simplicity, and transparency.</p>
         <p class="manifesto-statement">We emphasize community and shared ownership.</p>
         <p class="manifesto-statement">We believe in digital freedom — everyone should have control over their own data.</p>
-        <img class="mushroom-accent" src="images/mushroom-cluster.png" alt="" height="60" />
       </div>
 
       <h3 id="the-nostroots-app">The Nostroots App</h3>
@@ -602,66 +84,46 @@
       </ul>
       <p>This creates a foundation for decentralized, user-owned social networking within the Trustroots ecosystem, which we hope will enable more innovations in gift economy applications beyond traditional hospitality exchange. We already see two projects coming soon: lightfoot (a letter writing app) and a hitchhiking app.</p>
 
-      <div class="mycelium"><img src="images/section-vines.svg" alt="" /></div>
-
       <h2 id="getting-started">Try it</h2>
       <div class="cards">
-        <div class="card" id="android">
-          <h2>Android</h2>
-          <p>Download the latest APK from GitHub releases. These APKs receive over-the-air updates for minor changes.</p>
+        <article class="card download-card android" id="android">
+          <div class="card-main">
+            <span class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M10 8l14 24-14 8V8zm18 0v32l14-8L28 8z" fill="currentColor"/></svg>
+            </span>
+            <h2>Android</h2>
+            <p>Available on Google Play. GitHub release APKs receive over-the-air updates for minor changes.</p>
+            <p><a href="https://github.com/Trustroots/nostroots/releases">Download the latest APK from GitHub releases</a></p>
+          </div>
           <a
-            class="btn"
-            href="https://github.com/Trustroots/nostroots/releases"
+            class="card-action"
+            href="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
             data-umami-event="Click Android app"
             data-umami-event-placement="card"
             data-umami-event-target="android-app"
-            data-umami-event-url="https://github.com/Trustroots/nostroots/releases"
-          >Download APK</a>
-          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
-        </div>
-        <div class="card" id="ios">
-          <h2>iOS</h2>
-          <p>Install TestFlight on your iPhone, then join the Nostroots beta.</p>
+            data-umami-event-url="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
+          >Get on Google Play</a>
+        </article>
+        <article class="card download-card ios" id="ios">
+          <div class="card-main">
+            <span class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M30 8c-1 4-3 7-6 9 3 2 5 5 6 9 4-1 7-4 9-8-3-3-6-5-9-10zm-6 9c-5 0-9 4-9 10s4 10 9 10 9-4 9-10-4-10-9-10z" fill="currentColor"/></svg>
+            </span>
+            <h2>iOS</h2>
+            <p>Install TestFlight on your iPhone, then join the Nostroots beta.</p>
+          </div>
           <a
-            class="btn"
+            class="card-action"
             href="https://testflight.apple.com/join/n5WGu8Hu"
             data-umami-event="Click iOS app"
             data-umami-event-placement="card"
             data-umami-event-target="ios-app"
             data-umami-event-url="https://testflight.apple.com/join/n5WGu8Hu"
           >Join TestFlight</a>
-          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
-        </div>
+        </article>
       </div>
 
-      <section class="recent-notes-box" id="recent-notes-box" aria-label="Recent notes">
-        <h2><a href="https://nos.trustroots.org/chat.html">Latest chat notes</a></h2>
-        <div id="recent-notes-list" class="recent-notes-list">
-          <p class="recent-notes-loading">Loading recent notes…</p>
-        </div>
-      </section>
-
-      <div class="cards">
-        <div class="card" id="experiments">
-          <h2>Experiments</h2>
-          <p>Try one of these Nostroots experiments.</p>
-          <ul class="experiments-list">
-            <li>
-              <a
-                href="https://nos.trustroots.org"
-                data-umami-event="Click web app"
-                data-umami-event-placement="card"
-                data-umami-event-target="web-app"
-                data-umami-event-url="https://nos.trustroots.org"
-              >Web app</a>
-            </li>
-            <li>
-              <a class="experiment-idea-link" href="https://www.trustroots.org/support">your nostr experiment here?</a>
-            </li>
-          </ul>
-          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
-        </div>
-      </div>
+      <p id="experiments"><a href="index.html#web-apps-heading">See web app experiments on the home page</a>.</p>
 
       <h2 id="background--vision">Why are we doing this?</h2>
 
@@ -709,8 +171,6 @@
         <li>Connect notes to specific <a href="https://www.trustroots.org/circles">circles</a> (coming soon)</li>
       </ul>
       <p>This creates a foundation for decentralized, user-owned social networking within the Trustroots ecosystem, enabling innovation in gift economy applications beyond traditional hospitality exchange.</p>
-
-      <div class="mycelium"><img src="images/section-roots.svg" alt="" /></div>
 
       <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
       <blockquote><strong>You're warmly invited to edit this section:</strong> improve, add questions, and answers!</blockquote>
@@ -796,7 +256,7 @@
       <h2 id="want-to-help">Want to Help?</h2>
       <p>If you want to help, you can:</p>
       <ul>
-        <li><strong>Try out our app</strong> — Download and test the <a href="https://github.com/Trustroots/nostroots/releases/">Android APK</a> or <a href="https://github.com/Trustroots/nostroots/issues/116">wait</a> for the iOS TestFlight</li>
+        <li><strong>Try out our app</strong> — Get it on <a href="https://play.google.com/store/apps/details?id=org.trustroots.nostroots">Google Play</a> (<a href="https://github.com/Trustroots/nostroots/releases/">APK</a>) or <a href="https://github.com/Trustroots/nostroots/issues/116">wait</a> for the iOS TestFlight</li>
         <li><strong>Check the issues</strong> — Browse and contribute to issues at the <a href="https://github.com/Trustroots/nostroots">nostroots repository</a></li>
         <li><strong>Learn about Nostr</strong> — Read the <a href="https://nostr.com/">Nostr protocol documentation</a> to understand the technology</li>
         <li><strong>Join the conversation</strong> — Chat with us in the <a href="https://matrix.to/#/#nostroots:matrix.org">#nostroots Matrix room</a></li>
@@ -810,10 +270,9 @@
         <li><strong><a href="https://www.trustroots.org/.well-known/nostr.json">Trustroots NIP-05</a></strong> — Nostr identity mapping (e.g. <em>username</em>@trustroots.org); used by the Nostroots app to link and display usernames</li>
       </ul>
 
-        </main>
+        </div>
         <aside class="toc-aside">
-          <div class="toc-box">
-            <p class="toc-box-sticker"><img src="images/nostroots-brand-sticker-crisp.jpeg" alt="Nostroots" width="240" height="240" /></p>
+          <div class="panel toc-box">
             <ul>
               <li><a href="#what-is-nostroots">Nostroots?</a>
                 <ul>
@@ -835,23 +294,31 @@
               <li><a href="#want-to-help">Want to Help?</a></li>
               <li><a href="#resources">Resources</a></li>
             </ul>
-            <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
           </div>
         </aside>
       </div>
 
-      <div class="links">
-        <a href="index.html">Back to notes.trustroots.org</a>
-        <a href="https://matrix.to/#/#nostroots:matrix.org">Matrix chat</a>
-        <a href="https://www.trustroots.org/support">Support</a>
-        <a href="https://github.com/Trustroots/nostroots">GitHub</a>
-        <a href="https://github.com/Trustroots/notes.trustroots.org/edit/main/more.html">Edit this page</a>
-      </div>
-    </div>
-
-    <div class="mycelium">
-      <img src="images/mycelium-roots.svg" alt="" />
-    </div>
-    <script type="module" src="recent-notes.js?v=20260601a"></script>
+      <footer class="hub-footer">
+        <div>
+          <a href="index.html">Back to notes.trustroots.org</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://matrix.to/#/#nostroots:matrix.org">Matrix chat</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://www.trustroots.org/support">Support</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://github.com/Trustroots/nostroots">GitHub</a>
+        </div>
+        <a
+          class="hub-footer-icon"
+          href="https://github.com/Trustroots/notes.trustroots.org/edit/main/more.html"
+          aria-label="Edit this page on GitHub"
+          title="Edit this page"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </footer>
+    </main>
   </body>
 </html>

@@ -8,440 +8,24 @@
       name="description"
       content="Nostroots brings decentralized, user-owned social networking to Trustroots via the Nostr protocol. Download the app for Android or iOS."
     />
+    <meta name="theme-color" content="#004b3f" />
     <meta property="og:image" content="https://notes.trustroots.org/images/nostroots-brand-tree.png" />
     <meta name="twitter:image" content="https://notes.trustroots.org/images/nostroots-brand-tree.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="hub.css" />
     <script defer src="https://1p.trustroots.org/script.js" data-website-id="601d19e0-c5db-4545-a891-9cffc9e51d8c"></script>
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --green: #12b591;
-        --green-dark: #0e9a7b;
-        --bg: #f5f0e6;
-        --text: #3a2e1f;
-        --text-muted: #6b5940;
-        --card-bg: #faf6ed;
-        --card-border: #d4c9b0;
-        --radius: 14px;
-        --brown: #7a5c3a;
-        --olive: #6a7d45;
-        --tan: #c4a96a;
-        --rust: #b87333;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif;
-        color: var(--text);
-        background: var(--bg);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      h1, h2 {
-        font-family: Georgia, "Times New Roman", serif;
-        font-weight: 700;
-      }
-
-      a {
-        color: var(--brown);
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: var(--rust);
-        text-decoration: underline;
-      }
-
-      .header {
-        background: var(--green);
-        padding: 1rem 2rem 0.75rem;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.2rem 1.25rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .header .vines {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-      }
-
-      .header .vines img {
-        width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        opacity: 0.15;
-      }
-
-      .header .logo {
-        height: 32px;
-        width: auto;
-        position: relative;
-      }
-
-      .header h1 {
-        color: #fff;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.7rem;
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: 0.03em;
-        text-transform: none;
-        position: relative;
-      }
-
-      .header-url {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.9rem;
-        position: relative;
-        width: 100%;
-        text-align: center;
-        letter-spacing: 0.04em;
-      }
-
-      a.header-url:hover {
-        color: rgba(255, 255, 255, 1);
-        text-decoration: none;
-      }
-
-      .header-quicklinks {
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.82rem;
-        letter-spacing: 0.02em;
-      }
-
-      .header-quicklinks a {
-        color: rgba(255, 255, 255, 0.86);
-        text-decoration: none;
-      }
-
-      .header-quicklinks a:hover {
-        color: #fff;
-        text-decoration: underline;
-      }
-
-      .header-quicklinks .sep {
-        color: rgba(255, 255, 255, 0.55);
-      }
-
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 1.5rem 1.5rem 0.5rem;
-      }
-
-      .intro {
-        color: var(--text-muted);
-        font-size: 1.05rem;
-        margin-bottom: 1.25rem;
-      }
-
-      .brand-graphic-wrap {
-        margin: 1.5rem 0;
-        text-align: center;
-      }
-      .brand-graphic {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 8px;
-      }
-
-      .cards {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        align-items: stretch;
-      }
-
-      .cards-sticker {
-        flex: 1;
-        min-width: 0;
-        padding: 0;
-        border-radius: var(--radius);
-        overflow: hidden;
-      }
-      .cards-sticker .brand-graphic {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .card {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 1.25rem;
-        position: relative;
-        overflow: hidden;
-      }
-      .card .btn {
-        align-self: center;
-        margin-top: auto;
-      }
-
-      .card h2 {
-        font-size: 1.15rem;
-        margin-bottom: 0.35rem;
-        color: var(--brown);
-        font-style: italic;
-      }
-
-      .card p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 0.75rem;
-      }
-
-      .card .experiments-list {
-        list-style: none;
-        padding: 0;
-        margin: 0.1rem 0 0.25rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-
-      .card .experiments-list li {
-        margin: 0;
-        padding: 0;
-      }
-
-      .card .experiments-list li a,
-      .card .experiments-list li.experiment-idea {
-        display: inline-block;
-        border: 1px solid var(--card-border);
-        border-radius: 999px;
-        background: #ebe4d4;
-        padding: 0.28rem 0.65rem;
-        font-size: 0.95rem;
-        line-height: 1.35;
-      }
-
-      .card .experiments-list li a {
-        color: var(--brown);
-        font-weight: 600;
-      }
-
-      .card .experiments-list li.experiment-idea {
-        color: var(--text-muted);
-        font-style: italic;
-      }
-
-      .card .experiments-list li a.experiment-idea-link {
-        color: var(--text-muted);
-        font-style: italic;
-        font-weight: 500;
-        padding: 0.22rem 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      .btn {
-        display: inline-block;
-        background: var(--green);
-        color: #fff;
-        font-weight: 600;
-        font-size: 0.95rem;
-        padding: 0.65rem 1.4rem;
-        border-radius: 8px;
-        transition: background 0.15s;
-      }
-
-      .btn:hover {
-        background: var(--green-dark);
-        text-decoration: none;
-      }
-
-      .features {
-        margin-bottom: 1.5rem;
-      }
-
-      .features h2 {
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
-        color: var(--brown);
-        font-style: italic;
-      }
-
-      .features ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .features li {
-        padding: 0.3rem 0;
-        padding-left: 1.4rem;
-        position: relative;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-
-      .features li::before {
-        content: "~";
-        position: absolute;
-        left: 0.15rem;
-        color: var(--olive);
-        font-weight: 700;
-        font-size: 1.1rem;
-        line-height: 1.3;
-      }
-
-      .mycelium {
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        opacity: 0.55;
-      }
-
-      .mycelium img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .card .mushroom-accent {
-        position: absolute;
-        bottom: 0.75rem;
-        right: 0.75rem;
-        opacity: 0.15;
-        pointer-events: none;
-      }
-
-      .links {
-        border-top: 1px solid var(--card-border);
-        padding-top: 1rem;
-        margin-bottom: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-size: 0.9rem;
-        font-family: Georgia, "Times New Roman", serif;
-        letter-spacing: 0.02em;
-      }
-
-      .links a {
-        font-family: Georgia, "Times New Roman", serif;
-        font-style: italic;
-      }
-
-      .note {
-        margin-top: 1.25rem;
-        padding: 0.75rem 1rem;
-        background: #ebe4d4;
-        border-radius: var(--radius);
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
-
-      .recent-notes-box {
-        margin-bottom: 1rem;
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius);
-        padding: 0.85rem 1rem;
-      }
-
-      .recent-notes-box h2 {
-        font-size: 1.05rem;
-        margin-bottom: 0.5rem;
-        color: var(--brown);
-        font-style: italic;
-      }
-
-      .recent-notes-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .recent-note-item {
-        padding-bottom: 0.35rem;
-      }
-
-      .recent-note-separator {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 14px;
-        margin: 0.2rem 0;
-        object-fit: cover;
-        object-position: center;
-        opacity: 0.45;
-      }
-
-      .recent-notes-box .note-meta-row {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.25rem 0.4rem;
-        font-size: 0.72rem;
-        color: var(--text-muted);
-        margin-bottom: 0.1rem;
-      }
-
-      .recent-notes-box .note-id {
-        margin-left: auto;
-        font-family: ui-monospace, monospace;
-        font-size: 0.8em;
-        color: var(--green);
-      }
-
-      .recent-notes-box .note-relative-time {
-        color: var(--text-muted);
-        font-size: 0.72rem;
-      }
-
-      .recent-notes-box .note-content {
-        font-size: 0.88rem;
-        color: var(--text);
-        line-height: 1.35;
-      }
-
-      @media (max-width: 700px) {
-        .cards {
-          flex-direction: column;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="header">
-      <div class="vines"><img src="images/vines-top.png" alt="" /></div>
-      <a href="https://www.trustroots.org/"><img class="logo" src="logo.svg" alt="Trustroots" /></a>
-      <h1>Nostroots</h1>
-      <a href="index.html" class="header-url">notes.trustroots.org</a>
-      <nav class="header-quicklinks" aria-label="Platform links">
+    <main class="hub" aria-labelledby="hub-title">
+      <nav class="hub-nav" aria-label="Platform links">
         <a
-          href="https://github.com/Trustroots/nostroots/releases"
+          href="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
           data-umami-event="Click Android app"
           data-umami-event-placement="header"
           data-umami-event-target="android-app"
-          data-umami-event-url="https://github.com/Trustroots/nostroots/releases"
+          data-umami-event-url="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
         >Android</a>
         <span class="sep" aria-hidden="true">·</span>
         <a
@@ -459,117 +43,323 @@
           data-umami-event-target="web-app"
           data-umami-event-url="https://nos.trustroots.org"
         >Web app</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="more.html">More information</a>
       </nav>
-    </div>
 
-    <div class="container">
-      <p class="intro">
-        <strong>Nostroots</strong> is the evolution of
-        <a href="https://www.trustroots.org/">Trustroots</a>, built on the
-        <a href="https://nostr.com/">Nostr protocol</a> — a decentralized, open
-        network for social networking. The result will be a version of Trustroots
-        that is more open, resilient, and user-empowered. Currently in development.
-        We are first working on an application that replaces the hardly used meet functionality.
-      </p>
+      <header class="hub-header">
+        <div class="brand">
+          <img src="images/nostroots-logo.png" alt="" width="86" height="86" />
+        </div>
+        <h1 id="hub-title">
+          <span class="hub-title-line">Nostroots</span>
+          <span class="hub-title-line">notes.trustroots.org</span>
+        </h1>
+        <p class="lead">
+          <strong>Nostroots</strong> is the evolution of
+          <a href="https://www.trustroots.org/">Trustroots</a>, built on the
+          <a href="https://nostr.com/">Nostr protocol</a> — a decentralized, open
+          network for social networking. Currently in development; we are first working
+          on an application that replaces the hardly used meet functionality.
+        </p>
+      </header>
 
-      <div class="features">
-        <h2>What can you do?</h2>
-        <ul>
+      <section aria-labelledby="features-heading">
+        <h2 class="section-title" id="features-heading">What can you do?</h2>
+        <ul class="features-list">
           <li>Post notes on a map to share what's happening in a location</li>
           <li>Subscribe to areas to hear from other community members</li>
           <li>Own your data — your identity and connections are portable</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="cards">
-        <div class="card">
-          <h2>Android</h2>
-          <p>
-            Download the latest APK from GitHub releases. These APKs receive
-            over-the-air updates for minor changes.
-          </p>
-          <a
-            class="btn"
-            href="https://github.com/Trustroots/nostroots/releases"
-            data-umami-event="Click Android app"
-            data-umami-event-placement="card"
-            data-umami-event-target="android-app"
-            data-umami-event-url="https://github.com/Trustroots/nostroots/releases"
-          >
-            Download APK
-          </a>
-          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
-        </div>
+      <section aria-labelledby="download-heading">
+        <h2 class="section-title" id="download-heading">Get the app</h2>
+        <p class="section-lead">Download Nostroots for Android or iOS.</p>
+        <div class="cards">
+          <article class="card download-card android">
+            <div class="card-main">
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M10 8l14 24-14 8V8zm18 0v32l14-8L28 8z" fill="currentColor"/>
+                </svg>
+              </span>
+              <h2>Android</h2>
+              <p>
+                Available on Google Play. GitHub release APKs receive over-the-air
+                updates for minor changes.
+              </p>
+              <p>
+                <a href="https://github.com/Trustroots/nostroots/releases">Download the latest APK from GitHub releases</a>
+              </p>
+            </div>
+            <a
+              class="card-action"
+              href="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
+              data-umami-event="Click Android app"
+              data-umami-event-placement="card"
+              data-umami-event-target="android-app"
+              data-umami-event-url="https://play.google.com/store/apps/details?id=org.trustroots.nostroots"
+            >Get on Google Play</a>
+          </article>
 
-        <div class="cards-sticker">
-          <img class="brand-graphic" src="images/nostroots-brand-sticker-crisp.jpeg" alt="Nostroots: roots, mushrooms and mycelium" />
-        </div>
-
-        <div class="card">
-          <h2>iOS</h2>
-          <p>
-            Install TestFlight on your iPhone, then join the Nostroots beta.
-          </p>
-          <a
-            class="btn"
-            href="https://testflight.apple.com/join/n5WGu8Hu"
-            data-umami-event="Click iOS app"
-            data-umami-event-placement="card"
-            data-umami-event-target="ios-app"
-            data-umami-event-url="https://testflight.apple.com/join/n5WGu8Hu"
-          >
-            Join TestFlight
-          </a>
-          <img class="mushroom-accent" src="images/mushroom-cluster.png" alt="" height="60" />
-        </div>
-      </div>
-
-      <section class="recent-notes-box" id="recent-notes-box" aria-label="Recent notes">
-        <h2><a href="https://nos.trustroots.org/chat.html">Latest chat notes</a></h2>
-        <div id="recent-notes-list" class="recent-notes-list">
-          <p class="recent-notes-loading">Loading recent notes…</p>
+          <article class="card download-card ios">
+            <div class="card-main">
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M30 8c-1 4-3 7-6 9 3 2 5 5 6 9 4-1 7-4 9-8-3-3-6-5-9-10zm-6 9c-5 0-9 4-9 10s4 10 9 10 9-4 9-10-4-10-9-10z" fill="currentColor"/>
+                </svg>
+              </span>
+              <h2>iOS</h2>
+              <p>Install TestFlight on your iPhone, then join the Nostroots beta.</p>
+            </div>
+            <a
+              class="card-action"
+              href="https://testflight.apple.com/join/n5WGu8Hu"
+              data-umami-event="Click iOS app"
+              data-umami-event-placement="card"
+              data-umami-event-target="ios-app"
+              data-umami-event-url="https://testflight.apple.com/join/n5WGu8Hu"
+            >Join TestFlight</a>
+          </article>
         </div>
       </section>
 
-      <div class="cards">
-        <div class="card">
-          <h2>Experiments</h2>
-          <p>
-            Try one of these Nostroots experiments:
-          </p>
-          <ul class="experiments-list">
-            <li>
-              <a
-                href="https://nos.trustroots.org/"
-                data-umami-event="Click web app"
-                data-umami-event-placement="card"
-                data-umami-event-target="web-app"
-                data-umami-event-url="https://nos.trustroots.org/"
-              >
-                Web app
-              </a>
-            </li>
-            <li>
-              <a class="experiment-idea-link" href="https://www.trustroots.org/support">your nostr experiment here?</a>
-            </li>
-          </ul>
-          <img class="mushroom-accent" src="images/mushroom-single.png" alt="" height="60" />
+      <section aria-labelledby="web-apps-heading">
+        <h2 class="section-title" id="web-apps-heading">Experiments</h2>
+        <p class="section-lead">Open your Trustroots profile, read traveler notes, or try map and sharing tools.</p>
+
+        <div id="hub-cards" class="cards" aria-label="Web apps">
+          <a
+            class="card trustroots"
+            href="https://www.trustroots.org/profile/edit/networks"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="trustroots-org"
+            data-umami-event-url="https://www.trustroots.org/profile/edit/networks"
+          >
+            <div class="card-main">
+              <span class="app-icon" aria-hidden="true">
+                <img src="https://www.trustroots.org/img/logo/horizontal-white.svg" alt="" width="296" height="54" loading="lazy" />
+              </span>
+              <h2>Trustroots.org</h2>
+              <p>Manage your classic Trustroots profile, networks, and account settings.</p>
+            </div>
+            <span class="card-action">Open Trustroots.org</span>
+          </a>
+
+          <a
+            class="card"
+            href="https://nos.trustroots.org/v0/"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="nostroots-web"
+            data-umami-event-url="https://nos.trustroots.org/v0/"
+          >
+            <div class="card-main">
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <text x="24" y="25" text-anchor="middle" dominant-baseline="middle" fill="currentColor">N</text>
+                  <path d="M24 31v9m0-4.5c-5.5 0-8.5 2.3-11 5M24 35.5c5.5 0 8.5 2.3 11 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                </svg>
+              </span>
+              <h2>Nostroots Web</h2>
+              <p>Read traveler notes by area. Connect a key when you want to post with your Trustroots identity.</p>
+            </div>
+            <span class="card-action">Open Nostroots Web</span>
+          </a>
+
+          <a
+            class="card squatbridge"
+            href="https://nos.trustroots.org/examples/squatbridge.html"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="squatbridge"
+            data-umami-event-url="https://nos.trustroots.org/examples/squatbridge.html"
+          >
+            <div class="card-main">
+              <span class="app-icon app-icon-text" aria-hidden="true">｟(･)｠</span>
+              <h2>Squatbridge</h2>
+              <p>Browse radar.squat.net events on a map and manually share them to Nostr.</p>
+            </div>
+            <span class="card-action">Open Squatbridge</span>
+          </a>
+
+          <a
+            class="card location experimental-card"
+            href="https://nos.trustroots.org/nostrail/"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="nostrail"
+            data-umami-event-url="https://nos.trustroots.org/nostrail/"
+          >
+            <div class="card-main">
+              <span class="card-label">More experimental</span>
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M24 7c-6.2 0-11.2 4.9-11.2 11 0 8 11.2 18 11.2 18s11.2-10 11.2-18c0-6.1-5-11-11.2-11Zm0 15.5a4.4 4.4 0 1 1 0-8.8 4.4 4.4 0 0 1 0 8.8Z" fill="currentColor"/>
+                  <path d="M24 34v6m0-3c-5.5 0-8.5 1.5-11 4M24 37c5.5 0 8.5 1.5 11 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                </svg>
+              </span>
+              <h2>Nostrail</h2>
+              <p>Share your approximate area with selected Trustroots people through the Nostroots app signer.</p>
+            </div>
+            <span class="card-action">Open Nostrail</span>
+          </a>
+
+          <a
+            class="card secondary experimental-card"
+            href="https://nos.trustroots.org/nostroots-map/"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="nostroots-map"
+            data-umami-event-url="https://nos.trustroots.org/nostroots-map/"
+          >
+            <div class="card-main">
+              <span class="card-label">More experimental</span>
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <path d="M11 12l8-3 10 3 8-3v25l-8 3-10-3-8 3V12Zm8-3v25m10-22v25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                  <path d="M24 33v7m0-3.5c-5.5 0-8.5 2-11 4.5M24 36.5c5.5 0 8.5 2 11 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                </svg>
+              </span>
+              <h2>Nostroots Map</h2>
+              <p>Try a browser-native map surface inspired by the mobile app, built without React or Expo Web.</p>
+            </div>
+            <span class="card-action">Open Nostroots Map</span>
+          </a>
+
+          <a
+            class="card treasures third-party-card"
+            href="https://treasures.to/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="treasures"
+            data-umami-event-url="https://treasures.to/"
+          >
+            <div class="card-main">
+              <span class="card-label">3rd party</span>
+              <span class="app-icon" aria-hidden="true">
+                <img src="https://treasures.to/icon.svg" alt="" width="54" height="54" loading="lazy" />
+              </span>
+              <h2>Treasures</h2>
+              <p>Join a Nostr-powered treasure hunt. Hide treasures, find them, and meet explorers worldwide.</p>
+            </div>
+            <span class="card-action">Open Treasures</span>
+          </a>
+
+          <a
+            class="card miti experimental-card third-party-card"
+            href="https://www.letsmiti.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="Click web app"
+            data-umami-event-placement="web-apps"
+            data-umami-event-target="lets-miti"
+            data-umami-event-url="https://www.letsmiti.app/"
+          >
+            <div class="card-main">
+              <span class="card-label">More experimental / 3rd party</span>
+              <span class="app-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                  <text x="24" y="24" text-anchor="middle" dominant-baseline="middle" fill="currentColor">M</text>
+                  <path d="M24 31v9m0-4.5c-5.5 0-8.5 2.3-11 5M24 35.5c5.5 0 8.5 2.3 11 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                </svg>
+              </span>
+              <h2>Let's Miti</h2>
+              <p>Try the third-party experimental Miti app from the traveler web app list.</p>
+            </div>
+            <span class="card-action">Open Let's Miti</span>
+          </a>
         </div>
-      </div>
 
-      <div class="links">
-        <a href="more.html">More information</a>
-        <a href="https://matrix.to/#/#nostroots:matrix.org">Matrix chat</a>
-        <a href="https://www.trustroots.org/support">Support</a>
-        <a href="https://github.com/Trustroots/nostroots">GitHub</a>
-        <a href="https://github.com/Trustroots/notes.trustroots.org/edit/main/index.html">Edit this page</a>
-      </div>
+        <div class="hub-controls">
+          <label class="toggle" for="show-experimental">
+            <input id="show-experimental" type="checkbox" aria-controls="hub-cards" />
+            <span>Show more experimental apps</span>
+          </label>
+          <label class="toggle" for="show-third-party">
+            <input id="show-third-party" type="checkbox" aria-controls="hub-cards" />
+            <span>Show 3rd party apps</span>
+          </label>
+        </div>
+      </section>
 
-    </div>
+      <footer class="hub-footer">
+        <div>
+          <a href="more.html">More information</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://matrix.to/#/#nostroots:matrix.org">Matrix chat</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://www.trustroots.org/support">Support</a>
+          <span class="sep" aria-hidden="true"> · </span>
+          <a href="https://github.com/Trustroots/nostroots">GitHub</a>
+        </div>
+        <a
+          class="hub-footer-icon"
+          href="https://github.com/Trustroots/notes.trustroots.org/edit/main/index.html"
+          aria-label="Edit this page on GitHub"
+          title="Edit this page"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16" focusable="false">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </footer>
+    </main>
 
-    <div class="mycelium">
-      <img src="images/mycelium-roots.svg" alt="" />
-    </div>
-    <script type="module" src="recent-notes.js?v=20260601a"></script>
+    <script>
+      (function () {
+        var SHOW_EXPERIMENTAL_STORAGE_KEY = 'nrweb_show_experimental_apps';
+        var SHOW_THIRD_PARTY_STORAGE_KEY = 'nrweb_show_third_party_apps';
+        var experimentalToggle = document.getElementById('show-experimental');
+        var thirdPartyToggle = document.getElementById('show-third-party');
+        var cards = document.getElementById('hub-cards');
+        if (!cards) return;
+
+        function readStoredPreference(key) {
+          try {
+            return window.localStorage && window.localStorage.getItem(key) === 'true';
+          } catch (_) {
+            return false;
+          }
+        }
+
+        function writeStoredPreference(key, value) {
+          try {
+            if (window.localStorage) window.localStorage.setItem(key, value ? 'true' : 'false');
+          } catch (_) {}
+        }
+
+        function syncCards() {
+          if (experimentalToggle) {
+            cards.classList.toggle('show-experimental', experimentalToggle.checked);
+          }
+          if (thirdPartyToggle) {
+            cards.classList.toggle('show-third-party', thirdPartyToggle.checked);
+          }
+        }
+
+        if (experimentalToggle) {
+          experimentalToggle.checked = readStoredPreference(SHOW_EXPERIMENTAL_STORAGE_KEY);
+          experimentalToggle.addEventListener('change', function () {
+            writeStoredPreference(SHOW_EXPERIMENTAL_STORAGE_KEY, experimentalToggle.checked);
+            syncCards();
+          });
+        }
+
+        if (thirdPartyToggle) {
+          thirdPartyToggle.checked = readStoredPreference(SHOW_THIRD_PARTY_STORAGE_KEY);
+          thirdPartyToggle.addEventListener('change', function () {
+            writeStoredPreference(SHOW_THIRD_PARTY_STORAGE_KEY, thirdPartyToggle.checked);
+            syncCards();
+          });
+        }
+
+        syncCards();
+      })();
+    </script>
   </body>
 </html>
